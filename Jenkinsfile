@@ -16,5 +16,10 @@ pipeline {
 				sh 'sudo docker build --tag=php54 .'
 			}
 		}
+		stage('starting docker-compose'){
+			steps{
+				sh 'sudo docker-compose up -d.'
+			}
+		}
 	}
 }
