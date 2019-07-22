@@ -13,12 +13,13 @@ pipeline {
 		}
 		stage('starting build'){
 			steps{
+				sh 'sudo docker-compose down'
+				sh 'sudo docker image rm php54'
 				sh 'sudo docker build --tag=php54 .'
 			}
 		}
 		stage('starting docker-compose'){
 			steps{
-				sh 'sudo docker-compose down'
 				sh 'sudo docker-compose up -d'
 			}
 		}
